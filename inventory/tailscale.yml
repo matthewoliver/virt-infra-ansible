@@ -1,0 +1,74 @@
+---
+tailscale:
+  hosts:
+    home-1:
+      virt_infra_networks:
+        - name: "net-mgmt"
+        - name: ovs-bridge
+          portgroup: home-a
+          type: ovs
+    home-2:
+      virt_infra_networks:
+        - name: "net-mgmt"
+        - name: ovs-bridge
+          portgroup: home-b
+          type: ovs
+    router-1:
+      virt_infra_networks:
+        - name: "net-mgmt"
+        - name: ovs-bridge
+          portgroup: home-a
+          type: ovs
+        - name: ovs-bridge
+          portgroup: home-b
+          type: ovs
+        - name: ovs-bridge
+          portgroup: isp-a
+          type: ovs
+    router-2:
+      virt_infra_networks:
+        - name: "net-mgmt"
+        - name: ovs-bridge
+          portgroup: isp-a
+          type: ovs
+        - name: ovs-bridge
+          portgroup: isp-b
+          type: ovs
+    router-ws-1:
+      virt_infra_networks:
+        - name: "net-mgmt"
+        - name: ovs-bridge
+          portgroup: isp-b
+          type: ovs
+        - name: ovs-bridge
+          portgroup: work-a
+          type: ovs
+    server-ws-1:
+      virt_infra_networks:
+        - name: "net-mgmt"
+        - name: ovs-bridge
+          portgroup: work-a
+          type: ovs
+    router-ws-2:
+      virt_infra_networks:
+        - name: "net-mgmt"
+        - name: ovs-bridge
+          portgroup: isp-b
+          type: ovs
+        - name: ovs-bridge
+          portgroup: work-b
+          type: ovs
+    server-ws-2:
+      virt_infra_networks:
+        - name: "net-mgmt"
+        - name: ovs-bridge
+          portgroup: work-b
+          type: ovs
+  vars:
+    virt_infra_distro: opensuse
+    virt_infra_distro_image: openSUSE-Leap-15.1-JeOS.x86_64-15.1.0-OpenStack-Cloud-Current.qcow2
+    virt_infra_distro_image_url: https://download.opensuse.org/distribution/leap/15.1/jeos/openSUSE-Leap-15.1-JeOS.x86_64-15.1.0-OpenStack-Cloud-Current.qcow2
+    virt_infra_variant: opensuse15.1
+    virt_infra_disks:
+        - name: "boot"
+          bus: "scsi"

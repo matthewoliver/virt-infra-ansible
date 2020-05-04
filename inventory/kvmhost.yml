@@ -31,3 +31,36 @@ kvmhost:
           subnet: "255.255.255.0"
           dhcp_start: "192.168.113.2"
           dhcp_end: "192.168.113.99"
+        - name: ovs-bridge
+          bridge_dev: ovs-bridge
+          type: ovs
+          portgroup:
+            - name: home-a
+              native_vlan: 1
+              vlan:
+                - 1
+            - name: home-b
+              native_vlan: 2
+              vlan:
+                - 2
+            - name: isp-a
+              native_vlan: 3
+              vlan:
+                - 3
+            - name: isp-b
+              native_vlan: 4
+              vlan:
+                - 4
+            - name: work-a
+              native_vlan: 5
+              vlan:
+                - 5
+            - name: work-b
+              native_vlan: 6
+              vlan:
+                - 6
+        - name: "net-mgmt"
+          ip_address: "172.16.1.1"
+          subnet: "255.255.255.0"
+          dhcp_start: "172.16.1.2"
+          dhcp_end: "172.16.1.10"
